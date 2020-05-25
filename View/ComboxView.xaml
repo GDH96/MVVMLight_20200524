@@ -1,0 +1,62 @@
+﻿<Window x:Class="MVVMLight_20200524.View.ComboxView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMLight_20200524.View"
+        mc:Ignorable="d"
+        Title="ComboxView" Height="450" Width="800"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Complex}">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left" Orientation="Horizontal" >
+                <TextBlock Text="下拉框" FontWeight="Bold" FontSize="15"  Margin="10 0 10 0"></TextBlock>
+                <DockPanel x:Name="Combox">
+                    <StackPanel DockPanel.Dock="Left" Width="200" Margin="10 0">
+                        <ComboBox Width="200" HorizontalAlignment="Left" 
+                                      ItemsSource="{Binding ComboxList}" 
+                                      SelectedItem="{Binding ComboxItem}" 
+                                      DisplayMemberPath="Text" 
+                                      SelectedValuePath="Key" 
+                                      SelectedIndex="0">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal" DataContext="{Binding ComboxItem}">
+                        <TextBlock Text="{Binding Key, StringFormat='选择的结果：\{0\}'}" Margin=" 0 0 15 0"></TextBlock>
+                        <TextBlock Text="{Binding Text }"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel Margin="10 10 50 0">
+                <TextBlock Text="单选框" FontWeight="Bold" FontSize="15" Margin="0 5 0 5"></TextBlock>
+                <DockPanel x:Name="RadioButton">
+                    <StackPanel DockPanel.Dock="Left" Width="240">
+                        <RadioButton Content="{Binding SingleRadio}" IsChecked="{Binding IsSingleRadioCheck}" HorizontalAlignment="Right" Width="240"></RadioButton>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal">
+                        <TextBlock Text="{Binding IsSingleRadioCheck,StringFormat='结果：\{0\}'}"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel Margin="10 10 50 0">
+                <TextBlock Text="组合单选框" FontWeight="Bold" FontSize="15" Margin="0 5 0 5"></TextBlock>
+                <DockPanel x:Name="GroupRadioButton">
+                    <StackPanel DockPanel.Dock="Left" Width="240">
+                        <ItemsControl ItemsSource="{Binding RadioButtons}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <RadioButton Content="{Binding Content}" IsChecked="{Binding IsCheck}" GroupName="RadioButtons"
+                                                  Command="{Binding DataContext.RadioCheckCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ItemsControl}}">
+                                    </RadioButton>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal">
+                        <TextBlock Text="{Binding RadioButton.Content,StringFormat='结果：\{0\}'}" ></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

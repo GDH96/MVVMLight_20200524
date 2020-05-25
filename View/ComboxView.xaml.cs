@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MVVMLight_20200524.View
 {
     /// <summary>
-    /// UserControl1.xaml 的交互逻辑
+    /// ComboxView.xaml 的交互逻辑
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class ComboxView : Window
     {
-        public UserControl1()
+        public ComboxView()
         {
             InitializeComponent();
         }

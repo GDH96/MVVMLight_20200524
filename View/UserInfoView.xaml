@@ -7,16 +7,50 @@
         mc:Ignorable="d"
         Title="UserInfoView" Height="450" Width="800"
         DataContext="{Binding Source={StaticResource Locator}, Path=UserInfo}">
+    <Window.Resources>
+        <SolidColorBrush x:Key="BorderBrush">DarkRed</SolidColorBrush>
+    </Window.Resources>
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10 10 0 0">
+        <StackPanel Orientation="Vertical" Margin="10 20 0 0" ToolTip="top">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="请输入姓名" FontSize="20"></TextBlock>
-                <TextBox Text="{Binding UserInfo.UserName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="200" FontSize="20"></TextBox>
+                <TextBlock Text="请输入姓名" ></TextBlock>
+                <TextBox Text="{Binding UserInfo.UserName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="200" ></TextBox>
+                <TextBlock Text="Hello  " Margin="20 0" ></TextBlock>
+                <TextBlock Text="{Binding UserInfo.UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }"  Width="200" ></TextBlock>
+               
             </StackPanel>
-            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-                <TextBlock Text="Hello  " FontSize="20" ></TextBlock>
-                <TextBlock Text="{Binding UserInfo.UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }"  Width="200" FontSize="20"></TextBlock>
+            
+            <StackPanel Orientation="Horizontal"   Margin="0,10,0,0">
+                <TextBox x:Name="WelcomeText" Width="200" Height="30" VerticalAlignment="Center"></TextBox>
+                <TextBlock Text="{Binding ElementName=WelcomeText, Path=Text, StringFormat='Hello : \{0\}'}" Margin="0,10,0,0"></TextBlock>
+                <TextBlock Text="{Binding Source={x:Static SystemFonts.IconFontFamily},Path=Source}"  Margin="100 10"></TextBlock>
+                <TextBlock Text="{Binding Source={StaticResource BorderBrush}}"  Margin="0 10" Foreground="{Binding Source={StaticResource BorderBrush}}"></TextBlock>
             </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="0 10">
+                <TextBlock Width="150" Text="获取自身高度"></TextBlock>
+                <TextBlock Width="200" Text="{Binding Path=Width, RelativeSource={RelativeSource Mode=Self}}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" ToolTip="parent">
+                <TextBlock Width="150" Text="查找上一层ToolTip:"></TextBlock>
+                <TextBlock Text="{Binding Path=ToolTip, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type StackPanel}}}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 10">
+                <TextBlock Width="150" Text="查找上两层ToolTip:"></TextBlock>
+                <TextBlock Text="{Binding Path=ToolTip, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type StackPanel}, AncestorLevel=2}}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" DataContext="UserInfo">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="名称" Width="100"></TextBlock>
+                    <TextBox Text="{Binding UserName}" Width="100"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="性别" Width="100"></TextBlock>
+                    <TextBox Text="{Binding Sex}" Width="100"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            
         </StackPanel>
+        
     </Grid>
 </Window>

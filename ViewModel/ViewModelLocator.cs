@@ -46,6 +46,7 @@ namespace MVVMLight_20200524.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<WelcomeViewModel>();
             SimpleIoc.Default.Register<UserInfoViewModel>();
+            SimpleIoc.Default.Register<ComplexInfoViewModel>();
         }
 
         public MainViewModel Main
@@ -70,6 +71,14 @@ namespace MVVMLight_20200524.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<UserInfoViewModel>();
+            }
+        }
+
+        public ComplexInfoViewModel Complex
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ComplexInfoViewModel>();
             }
         }
 
