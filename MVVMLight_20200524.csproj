@@ -77,15 +77,26 @@
     </ApplicationDefinition>
     <Compile Include="Model\CompBottonModel.cs" />
     <Compile Include="Model\ComplexInfoModel.cs" />
+    <Compile Include="Model\FruitInfoModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Include="Model\TreeNodeModel.cs" />
     <Compile Include="Model\UserInfoModel.cs" />
     <Compile Include="Model\WelcomeModel.cs" />
     <Compile Include="ViewModel\ComplexInfoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserInfoViewModel.cs" />
+    <Compile Include="ViewModel\ValidateExceptionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WelcomeViewModel.cs" />
+    <Compile Include="View\BindingFormView.xaml.cs">
+      <DependentUpon>BindingFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ComboxView.xaml.cs">
       <DependentUpon>ComboxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\FruitInfoView.xaml.cs">
+      <DependentUpon>FruitInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserInfoView.xaml.cs">
       <DependentUpon>UserInfoView.xaml</DependentUpon>
@@ -97,7 +108,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Assets\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BindingFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ComboxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\FruitInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,5 +161,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2.jpg" />
+    <Resource Include="Images\3.jpg" />
+    <Resource Include="Images\4.jpg" />
+    <Resource Include="Images\5.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

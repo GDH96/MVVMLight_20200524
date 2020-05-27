@@ -47,8 +47,11 @@ namespace MVVMLight_20200524.ViewModel
             SimpleIoc.Default.Register<WelcomeViewModel>();
             SimpleIoc.Default.Register<UserInfoViewModel>();
             SimpleIoc.Default.Register<ComplexInfoViewModel>();
-        }
 
+
+            SimpleIoc.Default.Register<ValidateExceptionViewModel>();
+        }
+        #region สตภýปฏ
         public MainViewModel Main
         {
             get
@@ -81,6 +84,16 @@ namespace MVVMLight_20200524.ViewModel
                 return ServiceLocator.Current.GetInstance<ComplexInfoViewModel>();
             }
         }
+
+        public ValidateExceptionViewModel ValidateException
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ValidateExceptionViewModel>();
+            }
+        }
+        #endregion
+
 
         public static void Cleanup()
         {

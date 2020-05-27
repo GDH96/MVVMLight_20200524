@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMLight_20200524.View"
         mc:Ignorable="d"
-        Title="ComboxView" Height="450" Width="800"
+        Title="ComboxView" Height="850" Width="800"
+        xmlns:Content="clr-namespace:MVVMLight_20200524.Content" 
         DataContext="{Binding Source={StaticResource Locator}, Path=Complex}">
     <Grid>
         <StackPanel>
@@ -56,6 +57,72 @@
                         <TextBlock Text="{Binding RadioButton.Content,StringFormat='结果：\{0\}'}" ></TextBlock>
                     </StackPanel>
                 </DockPanel>
+            </StackPanel>
+            <StackPanel Margin="10 10 50 0" >
+                <TextBlock Text="树" FontWeight="Bold"  FontSize="15"></TextBlock>
+                <DockPanel x:Name="TreeButton" Margin="0 5 0 5" HorizontalAlignment="Left">
+                    <StackPanel DockPanel.Dock="Left" Width="200">
+                        <TreeView ItemsSource="{Binding TreeInfo}" BorderThickness="0" x:Name="Tree">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                    <TextBlock Text="{Binding NodeName}"></TextBlock>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Width="200" DataContext="{Binding SelectedItem,ElementName=Tree}">
+                        <TextBlock Text="选择结果："></TextBlock>
+                        <TextBlock Text="{Binding NodeID, StringFormat='NodelID:\{0\}'}" ></TextBlock>
+                        <TextBlock Text="{Binding NodeName, StringFormat='NodelName:\{0\}'}" ></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel Margin="10,0,0,50" Orientation="Vertical" >
+                <TextBlock Text="ListBox模板" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+                <DockPanel >
+                    <StackPanel HorizontalAlignment="Left" DockPanel.Dock="Left" >
+                        <ListBox x:Name="lb" ItemsSource="{Binding ListBoxData}" Width="500" BorderThickness="0" >
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Width="{Binding ActualWidth,RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Source="{Binding Img}" Width="96" Height="96"/>
+                                        <TextBlock HorizontalAlignment="Center" Text="{Binding Info}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+
+                    <StackPanel DockPanel.Dock="Right" DataContext="{Binding SelectedItem,ElementName=lb}" Margin="15" Orientation="Vertical" >
+                        <TextBlock Text="{Binding Info,StringFormat='选中：\{0\}'}" ></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel Margin="10,0,0,50" Orientation="Vertical" >
+                <TextBlock Text="用户控件模板列表" FontWeight="Bold" FontSize="15" Margin="0,5,0,5" ></TextBlock>
+                <StackPanel HorizontalAlignment="Left" Width="500" >
+                    <ItemsControl ItemsSource="{Binding FiList}" HorizontalAlignment="Left" >
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Content:FruitInfoView />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <!-- 面板显示模板 -->
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal">
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                    </ItemsControl>
+
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
