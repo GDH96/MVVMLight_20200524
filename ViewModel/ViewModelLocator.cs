@@ -50,6 +50,9 @@ namespace MVVMLight_20200524.ViewModel
 
 
             SimpleIoc.Default.Register<ValidateExceptionViewModel>();
+            SimpleIoc.Default.Register<ValidationRuleViewModel>(); 
+            SimpleIoc.Default.Register<BindingFormViewModel>();
+            SimpleIoc.Default.Register<BindDataAnnotationsViewModel>();
         }
         #region สตภýปฏ
         public MainViewModel Main
@@ -92,6 +95,29 @@ namespace MVVMLight_20200524.ViewModel
                 return ServiceLocator.Current.GetInstance<ValidateExceptionViewModel>();
             }
         }
+
+        public ValidationRuleViewModel ValidationRule
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ValidationRuleViewModel>();
+            }
+        }
+        public BindingFormViewModel BindingForm
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BindingFormViewModel>();
+            }
+        }
+        public BindDataAnnotationsViewModel BindDataAnnotations
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BindDataAnnotationsViewModel>();
+            }
+        }
+        
         #endregion
 
 

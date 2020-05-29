@@ -52,6 +52,7 @@
       <HintPath>bin\Debug\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -75,6 +76,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\BoolToVisibility.cs" />
+    <Compile Include="Common\CreateUserInfoHelper.cs" />
+    <Compile Include="Common\InitDataHelper.cs" />
+    <Compile Include="Common\IntegerToSex.cs" />
+    <Compile Include="Common\LogonButtonEnableConvert .cs" />
+    <Compile Include="Common\ValidateModelBase.cs" />
+    <Compile Include="Common\ValidationRuleAssembly.cs" />
     <Compile Include="Model\CompBottonModel.cs" />
     <Compile Include="Model\ComplexInfoModel.cs" />
     <Compile Include="Model\FruitInfoModel.cs">
@@ -82,11 +90,16 @@
     </Compile>
     <Compile Include="Model\TreeNodeModel.cs" />
     <Compile Include="Model\UserInfoModel.cs" />
+    <Compile Include="Model\UserParam.cs" />
+    <Compile Include="Model\ValidateUserInfo.cs" />
     <Compile Include="Model\WelcomeModel.cs" />
+    <Compile Include="ViewModel\BindDataAnnotationsViewModel.cs" />
+    <Compile Include="ViewModel\BindingFormViewModel.cs" />
     <Compile Include="ViewModel\ComplexInfoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserInfoViewModel.cs" />
     <Compile Include="ViewModel\ValidateExceptionViewModel.cs" />
+    <Compile Include="ViewModel\ValidationRuleViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WelcomeViewModel.cs" />
     <Compile Include="View\BindingFormView.xaml.cs">

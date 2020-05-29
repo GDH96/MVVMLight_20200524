@@ -1,18 +1,19 @@
-<Application x:Class="MVVMLight_20200524.App" 
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             xmlns:local="clr-namespace:MVVMLight_20200524" 
-             StartupUri="View/BindingFormView.xaml" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             d1p1:Ignorable="d" 
+<Application x:Class="MVVMLight_20200524.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="View/BindingFormView.xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             d1p1:Ignorable="d"
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:MVVMLight_20200524.ViewModel" >
-  <Application.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="/MVVMLight_20200524;component/Assets/TextBox.xaml" />
-        </ResourceDictionary.MergedDictionaries>
-            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True"  />
+             xmlns:vm="clr-namespace:MVVMLight_20200524.ViewModel"
+             xmlns:Common="clr-namespace:MVVMLight_20200524.Common">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MVVMLight_20200524;component/Assets/TextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+            <Common:IntegerToSex x:Key="IntegerToSex" d:IsDataSource="True" />
         </ResourceDictionary>
-  </Application.Resources>
+    </Application.Resources>
 </Application>
