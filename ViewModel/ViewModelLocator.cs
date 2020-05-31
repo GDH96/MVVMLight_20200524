@@ -53,6 +53,7 @@ namespace MVVMLight_20200524.ViewModel
             SimpleIoc.Default.Register<ValidationRuleViewModel>(); 
             SimpleIoc.Default.Register<BindingFormViewModel>();
             SimpleIoc.Default.Register<BindDataAnnotationsViewModel>();
+            SimpleIoc.Default.Register<CommandViewModel>();
         }
         #region สตภýปฏ
         public MainViewModel Main
@@ -117,7 +118,15 @@ namespace MVVMLight_20200524.ViewModel
                 return ServiceLocator.Current.GetInstance<BindDataAnnotationsViewModel>();
             }
         }
-        
+
+        public CommandViewModel Command
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CommandViewModel>();
+            }
+        }
+
         #endregion
 
 

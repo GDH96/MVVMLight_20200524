@@ -88,6 +88,7 @@
     <Compile Include="Model\FruitInfoModel.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
+    <Compile Include="Model\ResTypeModel.cs" />
     <Compile Include="Model\TreeNodeModel.cs" />
     <Compile Include="Model\UserInfoModel.cs" />
     <Compile Include="Model\UserParam.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Model\WelcomeModel.cs" />
     <Compile Include="ViewModel\BindDataAnnotationsViewModel.cs" />
     <Compile Include="ViewModel\BindingFormViewModel.cs" />
+    <Compile Include="ViewModel\CommandViewModel.cs" />
     <Compile Include="ViewModel\ComplexInfoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserInfoViewModel.cs" />
@@ -110,6 +112,9 @@
     </Compile>
     <Compile Include="Content\FruitInfoView.xaml.cs">
       <DependentUpon>FruitInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CommandView.xaml.cs">
+      <DependentUpon>CommandView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserInfoView.xaml.cs">
       <DependentUpon>UserInfoView.xaml</DependentUpon>
@@ -134,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\FruitInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CommandView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
