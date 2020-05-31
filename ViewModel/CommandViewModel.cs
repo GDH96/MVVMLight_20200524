@@ -187,6 +187,7 @@ namespace MVVMLight_20200524.ViewModel
                 SelectInfo = ResType.List[ResType.SelectIndex].Text;
             }
         }
+
         #region 事件转命令执行
 
         private String selectInfo;
